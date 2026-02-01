@@ -6,8 +6,8 @@
 
 # Danh sách các phần
 
-- [MCP](#mcp)
-- [SKILL](#skill)
+- [MCP](https://modelcontextprotocol.io/docs/getting-started/intro)
+- [SKILL](https://cursor.com/docs/context/skills)
 
 ---
 
