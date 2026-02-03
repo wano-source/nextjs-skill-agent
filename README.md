@@ -7,7 +7,7 @@
 # Danh sách các phần
 
 - [MCP](https://modelcontextprotocol.io/docs/getting-started/intro)
-- [SKILL](https://cursor.com/docs/context/skills)
+- [SKILL](https://skills.sh/)
 
 ---
 
@@ -86,19 +86,173 @@ Skill là các kỹ năng hoặc khả năng được định nghĩa sẵn mà A
 - **Tăng hiệu suất**: Agent có thể nhanh chóng áp dụng các pattern đã được tối ưu
 - **Dễ dàng bảo trì**: Cập nhật skill ở một nơi, áp dụng cho toàn bộ dự án
 
-## Cách tạo và sử dụng Skill
+## Skills CLI
 
-### Tạo Skill mới
+Skills CLI (`npx skills`) là package manager cho hệ sinh thái agent skills. Bạn có thể tìm kiếm và cài đặt skills từ cộng đồng.
 
-1. Tạo file skill trong thư mục `.kiro/skills/` hoặc thư mục tương ứng
-2. Định nghĩa skill với cú pháp markdown hoặc JSON
-3. Mô tả rõ ràng input, output và các bước thực hiện
+**Các lệnh chính:**
 
-### Sử dụng Skill
+```bash
+npx skills find [query]        # Tìm kiếm skills
+npx skills add <package>       # Cài đặt skill
+npx skills check               # Kiểm tra cập nhật
+npx skills update              # Cập nhật tất cả skills
+```
 
-- Gọi skill bằng cách tham chiếu tên skill trong prompt
-- Agent sẽ tự động áp dụng quy trình đã định nghĩa
-- Có thể kết hợp nhiều skill để tạo workflow phức tạp
+**Duyệt skills tại:** https://skills.sh/
+
+## Cách cài đặt Skill trên từng Agent IDE
+
+### <img src="https://claude.ai/favicon.ico" width="20" height="20" style="vertical-align: middle;"> Claude Code CLI
+
+**Thư mục:** `.claude/skills/`
+
+```bash
+npx skills add <owner/repo@skill> --dir .claude/skills
+```
+
+Ví dụ:
+
+```bash
+npx skills add vercel-labs/skills@find-skills --dir .claude/skills
+```
+
+Skill sẽ được tải tự động khi khởi động Claude Code.
+
+### <img src="https://codex.storage/favicon.ico" width="20" height="20" style="vertical-align: middle;"> Codex
+
+**Thư mục:** `.codex/skills/`
+
+```bash
+npx skills add <owner/repo@skill> --dir .codex/skills
+```
+
+Ví dụ:
+
+```bash
+npx skills add vercel-labs/skills@find-skills --dir .codex/skills
+```
+
+Reload Codex để nhận diện skill mới.
+
+### <img src="https://www.cursor.com/favicon.ico" width="20" height="20" style="vertical-align: middle;"> Cursor IDE
+
+**Thư mục:** `.cursor/skills/`
+
+```bash
+npx skills add <owner/repo@skill> --dir .cursor/skills
+```
+
+Ví dụ:
+
+```bash
+npx skills add vercel-labs/skills@find-skills --dir .cursor/skills
+```
+
+Restart Cursor để áp dụng thay đổi.
+
+### <img src="https://github.githubassets.com/favicons/favicon.svg" width="20" height="20" style="vertical-align: middle;"> GitHub Copilot
+
+**Thư mục:** `.github/skills/`
+
+```bash
+npx skills add <owner/repo@skill> --dir .github/skills
+```
+
+Ví dụ:
+
+```bash
+npx skills add vercel-labs/skills@find-skills --dir .github/skills
+```
+
+Skills sẽ được GitHub Copilot tự động nhận diện trong workspace.
+
+### <img src="https://kiro.dev/favicon.ico" width="20" height="20" style="vertical-align: middle;"> Kiro IDE
+
+**Thư mục:** `.kiro/skills/`
+
+```bash
+npx skills add <owner/repo@skill> --dir .kiro/skills
+```
+
+Ví dụ:
+
+```bash
+npx skills add vercel-labs/skills@find-skills --dir .kiro/skills
+```
+
+Skill sẽ tự động được tải khi Kiro khởi động.
+
+### Cài đặt Global (cho tất cả projects)
+
+Để cài đặt skill ở cấp độ user (áp dụng cho tất cả projects):
+
+```bash
+npx skills add <owner/repo@skill> -g -y
+```
+
+## Ví dụ cài đặt Skill
+
+### Cài đặt skill tìm kiếm skills khác
+
+```bash
+# Claude Code CLI
+npx skills add vercel-labs/skills@find-skills --dir .claude/skills
+
+# Codex
+npx skills add vercel-labs/skills@find-skills --dir .codex/skills
+
+# Cursor IDE
+npx skills add vercel-labs/skills@find-skills --dir .cursor/skills
+
+# GitHub Copilot
+npx skills add vercel-labs/skills@find-skills --dir .github/skills
+
+# Kiro IDE
+npx skills add vercel-labs/skills@find-skills --dir .kiro/skills
+
+# Global (cho tất cả projects)
+npx skills add vercel-labs/skills@find-skills -g -y
+```
+
+### Cài đặt skill React best practices
+
+```bash
+# Claude Code CLI
+npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .claude/skills
+
+# Codex
+npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .codex/skills
+
+# Cursor IDE
+npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .cursor/skills
+
+# GitHub Copilot
+npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .github/skills
+
+# Kiro IDE
+npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .kiro/skills
+```
+
+## Tạo Skill tùy chỉnh
+
+1. Khởi tạo skill mới:
+
+```bash
+npx skills init my-custom-skill
+```
+
+2. Chỉnh sửa file `SKILL.md` trong thư mục skill
+3. Định nghĩa rõ ràng:
+   - `name`: Tên skill
+   - `description`: Mô tả chức năng
+   - Nội dung hướng dẫn sử dụng
+
+## Sử dụng Skill
+
+- Agent sẽ tự động nhận diện và sử dụng skills đã cài đặt
+- Bạn có thể yêu cầu Agent sử dụng skill cụ thể trong prompt
+- Kết hợp nhiều skills để tạo workflow phức tạp
 
 ---
 
