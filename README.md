@@ -103,6 +103,44 @@ npx skills update              # Cập nhật tất cả skills
 
 ## Cách cài đặt Skill trên từng Agent IDE
 
+### <img src="https://www.windsurf.ai/favicon.ico" width="20" height="20" style="vertical-align: middle;"> Windsurf IDE (Cascade)
+
+**Thư mục:** `.windsurf/skills/` (workspace) hoặc `~/.codeium/windsurf/skills/` (global)
+
+```bash
+# Workspace skill (chỉ cho project hiện tại)
+npx skills add <owner/repo@skill> --dir .windsurf/skills
+
+# Global skill (cho tất cả projects)
+npx skills add <owner/repo@skill> --dir ~/.codeium/windsurf/skills
+```
+
+Ví dụ:
+
+```bash
+npx skills add vercel-labs/skills@find-skills --dir .windsurf/skills
+```
+
+Cascade sẽ tự động nhận diện và invoke skills khi cần thiết.
+
+**Lưu ý:** Windsurf cũng hỗ trợ tạo skill qua UI: Cascade panel → Menu (3 dots) → Skills → + Workspace/Global
+
+### <img src="https://cline.bot/favicon.ico" width="20" height="20" style="vertical-align: middle;"> Cline (VSCode Extension)
+
+**Thư mục:** `.agents/skills/`
+
+```bash
+npx skills add <owner/repo@skill> --dir .agents/skills
+```
+
+Ví dụ:
+
+```bash
+npx skills add vercel-labs/skills@find-skills --dir .agents/skills
+```
+
+Restart VSCode hoặc reload Cline extension để áp dụng skill mới.
+
 ### <img src="https://claude.ai/favicon.ico" width="20" height="20" style="vertical-align: middle;"> Claude Code CLI
 
 **Thư mục:** `.claude/skills/`
@@ -151,7 +189,7 @@ npx skills add vercel-labs/skills@find-skills --dir .cursor/skills
 
 Restart Cursor để áp dụng thay đổi.
 
-### <img src="https://github.githubassets.com/favicons/favicon.svg" width="20" height="20" style="vertical-align: middle;"> GitHub Copilot
+### <img src="https://github.githubassets.com/favicons/favicon.svg" width="20" height="20" style="vertical-align: middle;"> GitHub Copilot (VSCode)
 
 **Thư mục:** `.github/skills/`
 
@@ -196,6 +234,12 @@ npx skills add <owner/repo@skill> -g -y
 ### Cài đặt skill tìm kiếm skills khác
 
 ```bash
+# Windsurf IDE
+npx skills add vercel-labs/skills@find-skills --dir .windsurf/skills
+
+# Cline (VSCode)
+npx skills add vercel-labs/skills@find-skills --dir .agents/skills
+
 # Claude Code CLI
 npx skills add vercel-labs/skills@find-skills --dir .claude/skills
 
@@ -205,7 +249,7 @@ npx skills add vercel-labs/skills@find-skills --dir .codex/skills
 # Cursor IDE
 npx skills add vercel-labs/skills@find-skills --dir .cursor/skills
 
-# GitHub Copilot
+# GitHub Copilot (VSCode)
 npx skills add vercel-labs/skills@find-skills --dir .github/skills
 
 # Kiro IDE
@@ -218,6 +262,12 @@ npx skills add vercel-labs/skills@find-skills -g -y
 ### Cài đặt skill React best practices
 
 ```bash
+# Windsurf IDE
+npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .windsurf/skills
+
+# Cline (VSCode)
+npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .agents/skills
+
 # Claude Code CLI
 npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .claude/skills
 
@@ -227,7 +277,7 @@ npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .codex
 # Cursor IDE
 npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .cursor/skills
 
-# GitHub Copilot
+# GitHub Copilot (VSCode)
 npx skills add vercel-labs/agent-skills@vercel-react-best-practices --dir .github/skills
 
 # Kiro IDE
