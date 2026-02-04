@@ -2,7 +2,65 @@
 
 Đây là repository hướng dẫn tích hợp và ứng dụng MCP, Skill, Rule vào dự án để Human và Agent có thể phối hợp đạt được output gần với kỳ vọng nhất.
 
+- **Lưu ý**: Đây không phải là project base code nextjs.
 ---
+
+# Câu chuyện
+
+Nếu bạn là người mới bắt đầu ứng dụng AI vào việc coding thì nên đọc qua chút, còn nếu bạn là người đã có kinh nghiệm sử dụng thì có thể bỏ qua phần bức tranh mà AI đang thay đổi cách chúng ta coding phát triển phần mềm.
+
+## Quá trình phát triển AI Agent trong Coding
+
+```mermaid
+timeline
+    title Hành trình tiến hóa của AI Agent trong lập trình
+    
+    section Giai đoạn 1
+        Milestone 1 : Code Suggestion Inline
+                    : Gợi ý code tự động khi gõ
+                    : Autocomplete thông minh
+                    : VD: GitHub Copilot, TabNine
+    
+    section Giai đoạn 2
+        Milestone 2 : Prompt + Agent Generate Code Single File
+                    : Nhập prompt mô tả yêu cầu
+                    : Agent tạo code cho 1 file
+                    : Tương tác đơn giản với AI
+    
+    section Giai đoạn 3
+        Milestone 3 : Agent Generate Code Multi-File
+                    : Tạo cấu trúc source code hoàn chỉnh
+                    : Quản lý nhiều file cùng lúc
+                    : Hiểu kiến trúc dự án
+    
+    section Giai đoạn 4
+        Milestone 4 : Context-Aware Agent
+                    : Đọc và phân tích hình ảnh
+                    : Indexing toàn bộ codebase
+                    : Auto-summary conversation
+                    : Giữ ngữ cảnh xuyên suốt
+    
+    section Giai đoạn 5
+        Milestone 5 : Multi-Agent System
+                    : Hệ thống Multi-Agent
+                    : Sub-Agent chuyên biệt
+                    : Rule files (.md)
+                    : Skill files (.md)
+                    : MCP Protocol
+    
+    section Giai đoạn 6
+        Milestone 6 : Software Engineering Agent Cloud
+                    : Agent trên cloud
+                    : CI/CD tự động
+                    : Deployment automation
+                    : Full software lifecycle
+```
+
+# Điều cần ghi nhớ
+- Khi cài đặt các MCP, Skill... thì tôi khuyên bạn nên cài vào workspace phạm vi theo từng project, đừng cài vào global
+- ✅ **Nên làm**: Cài đặt vào workspace của từng project (`.kiro/`, `.cursor/`, `.claude/`...) để dễ quản lý và tùy chỉnh theo nhu cầu riêng
+- ❌ **Không nên làm**: Cài đặt global cho tất cả projects vì sẽ khó kiểm soát version và conflict giữa các dự án (/home/xxxxx/.cursor/mcp.json)
+
 
 # Danh sách các phần
 
@@ -17,12 +75,47 @@
 
 MCP (Model Context Protocol) là giao thức chuẩn cho phép các AI Agent giao tiếp và tương tác với các nguồn dữ liệu, công cụ và dịch vụ bên ngoài một cách nhất quán. MCP cung cấp một lớp trừu tượng giúp Agent có thể truy cập thông tin và thực thi các tác vụ mà không cần phải tích hợp riêng lẻ từng dịch vụ. Hiểu đơn giản có nhiều nguồn data, đừng bắt Agent phải tạo 1 protocal riêng cho từng nguồn data.
 
+Hãy hiểu đơn giản khi Agent muốn truy cập lấy data từ google docs, hay lấy data từ database mysql. Theo tư duy thông thường thì sử dụng API để agent request đến và nhận response. OMG sẽ ra sao nếu ta có hàng trăm service data cần tích hợp, vì thế cần đưa chúng về 1 cái chuẩn, 1 protocal duy nhất để giúp AGENT lấy được data của mọi nguồn mà không cần custom giao thức cho từng nguồn riêng lẻ. 
+
+```mermaid
+flowchart LR
+    subgraph AI["Ứng dụng AI"]
+        A1["Giao diện Chat<br/>Claude Desktop, LibreChat"]
+        A2["IDE và Trình soạn thảo<br/>Claude Code, Goose"]
+        A3["Ứng dụng AI khác<br/>Sire, Superinterface"]
+    end
+    
+    subgraph MCP["MCP<br/>Giao thức chuẩn hóa"]
+        M[("Luồng dữ liệu<br/>hai chiều")]
+    end
+    
+    subgraph Tools["Nguồn dữ liệu và Công cụ"]
+        T1["Hệ thống dữ liệu và File<br/>PostgreSQL, SQLite, GDrive"]
+        T2["Công cụ phát triển<br/>Git, Sentry, v.v."]
+        T3["Công cụ năng suất<br/>Slack, Google Maps, v.v."]
+    end
+    
+    A1 -->|Luồng dữ liệu<br/>hai chiều| M
+    A2 -->|Luồng dữ liệu<br/>hai chiều| M
+    A3 -->|Luồng dữ liệu<br/>hai chiều| M
+    
+    M -->|Luồng dữ liệu<br/>hai chiều| T1
+    M -->|Luồng dữ liệu<br/>hai chiều| T2
+    M -->|Luồng dữ liệu<br/>hai chiều| T3
+    
+    style MCP fill:#B8D4E8,stroke:#5A8FB8,stroke-width:3px
+    style AI fill:#F0F0F0,stroke:#999,stroke-width:2px
+    style Tools fill:#F0F0F0,stroke:#999,stroke-width:2px
+```
+
 ## Ứng dụng
 
-- **Truy cập dữ liệu**: Kết nối với cơ sở dữ liệu, API, file system
-- **Tích hợp công cụ**: Sử dụng các công cụ bên ngoài như trình duyệt, terminal, IDE
-- **Mở rộng khả năng**: Thêm các chức năng mới cho Agent mà không cần thay đổi code gốc
-- **Tự động hóa workflow**: Kết nối nhiều dịch vụ để tạo quy trình làm việc tự động
+- **Truy cập dữ liệu**: Kết nối với cơ sở dữ liệu, API, file system, figma, document framework
+
+## Danh sách MCP Server được cài
+
+- **MCP NextJS**: [next-devtools-mcp](https://github.com/vercel/next-devtools-mcp)
+- **MCP Shadcn**: [shadcn@latest](https://ui.shadcn.com/docs/mcp)
 
 ## Cách cài đặt trên từng Agent IDE
 
@@ -77,7 +170,7 @@ MCP (Model Context Protocol) là giao thức chuẩn cho phép các AI Agent gia
 
 ## Khái niệm
 
-Skill là các kỹ năng hoặc khả năng được định nghĩa sẵn mà Agent có thể sử dụng để thực hiện các tác vụ cụ thể. Mỗi skill đại diện cho một chức năng hoặc quy trình làm việc được tối ưu hóa.
+Skill là các kỹ năng hoặc kiến thức chuyên môn chuyên biệt được định nghĩa sẵn mà Agent có thể sử dụng để thực hiện các tác vụ cụ thể. Mỗi skill đại diện cho một kiến thức riêng biệt mà bạn muốn Agent học để nạp vào đầu nó.
 
 ## Ứng dụng
 
