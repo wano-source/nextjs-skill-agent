@@ -47,6 +47,7 @@ timeline
                     : Rule files (.md)
                     : Skill files (.md)
                     : MCP Protocol
+                    : Browser Agent Access
     
     section Giai đoạn 6
         Milestone 6 : Software Engineering Agent Cloud
@@ -64,8 +65,13 @@ timeline
 
 # Danh sách các phần
 
+- RULE [Cursor](https://cursor.com/docs/context/rules) |  [Antigravity](https://antigravity.google/docs/rules-workflows) | [ClaudeCode](https://code.claude.com/docs/en/skills#extend-claude-with-skills)
+- Command [Cursor](https://cursor.com/docs/context/commands) |  [Antigravity](https://antigravity.google/docs/command) | [ClaudeCode](https://code.claude.com/docs/en/skills#extend-claude-with-skills)
 - [MCP](https://modelcontextprotocol.io/docs/getting-started/intro)
 - [SKILL](https://skills.sh/)
+
+**Thực sự thì mấy ông mẽo là chuyên gia trong việc phức tạp hóa mọi vấn đề lên**: rule, skill khác nhau ở đâu?
+
 
 ---
 
