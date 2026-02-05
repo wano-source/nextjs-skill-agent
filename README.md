@@ -60,7 +60,7 @@ timeline
 # Điều cần ghi nhớ
 - Khi cài đặt các MCP, Skill... thì tôi khuyên bạn nên cài vào workspace phạm vi theo từng project, đừng cài vào global
 - ✅ **Nên làm**: Cài đặt vào workspace của từng project (`.kiro/`, `.cursor/`, `.claude/`...) để dễ quản lý và tùy chỉnh theo nhu cầu riêng
-- ❌ **Không nên làm**: Cài đặt global cho tất cả projects vì sẽ khó kiểm soát version và conflict giữa các dự án (/home/xxxxx/.cursor/mcp.json)
+- ❌ **Không nên làm**: Cài đặt global (filesystem) cho tất cả projects vì sẽ khó kiểm soát version và conflict giữa các dự án (/home/xxxxx/.cursor/mcp.json)
 
 
 # Danh sách các phần
@@ -120,7 +120,7 @@ flowchart LR
 
 ## Ứng dụng
 
-- **Truy cập dữ liệu**: Kết nối với cơ sở dữ liệu, API, file system, figma, document framework
+- **Truy cập dữ liệu**: Kết nối với cơ sở dữ liệu, API, file system, figma, document framework, ví dụ cho phép agent đọc figma để generate ra code...
 
 ## Danh sách MCP Server được cài
 
@@ -182,7 +182,7 @@ flowchart LR
 
 ## Khái niệm
 
-[Skill](https://agentskills.io/home) là các kỹ năng hoặc kiến thức chuyên môn chuyên biệt được định nghĩa sẵn mà Agent có thể sử dụng để thực hiện các tác vụ cụ thể. Mỗi skill đại diện cho một kiến thức riêng biệt mà bạn muốn Agent học để nạp vào đầu nó.
+[Skill](https://agentskills.io/home) là các kỹ năng hoặc kiến thức chuyên môn chuyên biệt được định nghĩa sẵn mà Agent có thể sử dụng để thực hiện các tác vụ cụ thể. Mỗi skill đại diện cho một kiến thức riêng biệt mà bạn muốn Agent học để nạp vào đầu nó. Hoặc nó cũng có thể là 1 workflow chuyên biệt đang được dùng trong dự án mà bạn muốn agent nạp vào đầu.
 
 ## Ứng dụng
 
@@ -194,6 +194,17 @@ flowchart LR
 - "Chợ": Giống như MCP thì Skill cũng có cái chợ riêng, mọi người có thể upload những bộ skill lên đấy, hiện tại có nhiều chợ nhưng mình recommand bạn sử dụng chợ của [Vercel Skill.sh](skill.sh) 
 
 - ![Vercel Skills](public/images/vercel-skills.png)
+
+## Cách một Skill hoạt động 
+
+1. **Discovery (Phát hiện):** Khi khởi động, agent tải **name và  description** metadata của mỗi skill — đủ để biết nó có thể phù hợp khi nào.  
+2. **Activation (Kích hoạt):** Khi một nhiệm vụ trùng với mô tả của skill, agent tải toàn bộ nội dung `SKILL.md` vào ngữ cảnh.  
+3. **Execution (Thực thi):** Agent thực hiện theo hướng dẫn, có thể tải thêm các file tham chiếu hoặc chạy mã đi kèm khi cần.
+
+Cách tiếp cận này giúp agent **nhanh, nhẹ**, nhưng vẫn có thể truy cập nhiều thông tin chi tiết **khi cần**. 
+
+À format file không ràng buộc nhé, chỉ required name và description, còn nội dung ở dưới thì viết như nào cũng được.
+[Specfication](https://agentskills.io/specification)
 
 ## Skills CLI
 
