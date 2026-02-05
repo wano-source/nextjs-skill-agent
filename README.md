@@ -72,7 +72,11 @@ timeline
 
 **Thực sự thì mấy ông mẽo là chuyên gia trong việc phức tạp hóa mọi vấn đề lên**: rule, skill khác nhau ở đâu?
 
+Mọi người cứ hiểu đơn giản, rule là những cái quy tắc mà Agent bắt buộc phải tuân thủ khi bước vào dự án, giống kiểu học sinh đến trường thì phải theo bộ rule mặc đồng phục, đi đúng giờ. Skill là những kiến thực chuyên biệt mà agent phải học để có thể vào dự án, giống kiểu học sinh đến trường thì sẽ được học các môn học riêng, toán, lý...
 
+Ví dụ: 
+- Rule: style code, structure folder, name convention 
+- SKill: bộ kỹ năng, tip, trick rect best particle, next performance...
 ---
 
 # MCP
@@ -122,6 +126,8 @@ flowchart LR
 
 - **MCP NextJS**: [next-devtools-mcp](https://github.com/vercel/next-devtools-mcp)
 - **MCP Shadcn**: [shadcn@latest](https://ui.shadcn.com/docs/mcp)
+- **MCP Figma Remote Server**: [fima remote server](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/)
+  - cần bật figma mode dev, mất phí nhé mọi người
 
 ## Cách cài đặt trên từng Agent IDE
 
