@@ -68,7 +68,7 @@ timeline
 - RULE [Cursor](https://cursor.com/docs/context/rules) |  [Antigravity](https://antigravity.google/docs/rules-workflows) | [ClaudeCode](https://code.claude.com/docs/en/skills#extend-claude-with-skills)
 - Command [Cursor](https://cursor.com/docs/context/commands) |  [Antigravity](https://antigravity.google/docs/command) | [ClaudeCode](https://code.claude.com/docs/en/skills#extend-claude-with-skills)
 - [MCP](https://modelcontextprotocol.io/docs/getting-started/intro)
-- [SKILL](https://skills.sh/)
+- [SKILL](https://agentskills.io/home)
 
 **Thực sự thì mấy ông mẽo là chuyên gia trong việc phức tạp hóa mọi vấn đề lên**: rule, skill khác nhau ở đâu?
 
@@ -182,14 +182,18 @@ flowchart LR
 
 ## Khái niệm
 
-Skill là các kỹ năng hoặc kiến thức chuyên môn chuyên biệt được định nghĩa sẵn mà Agent có thể sử dụng để thực hiện các tác vụ cụ thể. Mỗi skill đại diện cho một kiến thức riêng biệt mà bạn muốn Agent học để nạp vào đầu nó.
+[Skill](https://agentskills.io/home) là các kỹ năng hoặc kiến thức chuyên môn chuyên biệt được định nghĩa sẵn mà Agent có thể sử dụng để thực hiện các tác vụ cụ thể. Mỗi skill đại diện cho một kiến thức riêng biệt mà bạn muốn Agent học để nạp vào đầu nó.
 
 ## Ứng dụng
 
-- **Tái sử dụng code**: Định nghĩa một lần, sử dụng nhiều lần
-- **Chuẩn hóa quy trình**: Đảm bảo các tác vụ được thực hiện theo cách nhất quán
-- **Tăng hiệu suất**: Agent có thể nhanh chóng áp dụng các pattern đã được tối ưu
-- **Dễ dàng bảo trì**: Cập nhật skill ở một nơi, áp dụng cho toàn bộ dự án
+- **Sự thật**: Với các model on top ở thời điểm hiện tại như claude Opus 4.5, Codex 5.2 thì cá nhân mình thấy mấy cái kiểu react-best-particle, nextjs performance...nó đều xử lý bá đạo rồi. Nhưng cái nó thiếu là những mẹo, tips, trick được đúc kết trong quá trình làm dự án do Human note lại, nó không thể biết những bài vở đó, vì đó là những bài vở mà có thể chỉ dự án của bạn mới có, chỉ dự án bạn mới gặp phải.
+
+
+## Marketplace
+
+- "Chợ": Giống như MCP thì Skill cũng có cái chợ riêng, mọi người có thể upload những bộ skill lên đấy, hiện tại có nhiều chợ nhưng mình recommand bạn sử dụng chợ của [Vercel Skill.sh](skill.sh) 
+
+- ![Vercel Skills](public/images/vercel-skills.png)
 
 ## Skills CLI
 
