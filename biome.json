@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,7 +7,30 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!docs",
+      "!cSpell.json",
+      "!tailwind.config.js",
+      "!next-sitemap.config.js",
+      "!libs/rehype-highlight-line.js",
+      "!postcss.config.js",
+      "!source",
+      "!payload-types.ts",
+      "!lib/lexical-serializer.ts",
+      "!lib/markdown-utils.ts",
+      "!styles/prism.css",
+      "!styles/sandpack.css",
+      "!styles/nprogress.css",
+      "!styles/ads.css",
+      "!styles/globals.css",
+      "!app/llms.mdx/*",
+      "!.sponsorsrc"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -19,7 +42,80 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "noBitwiseOperators": "error",
+        "noConsole": {
+          "options": {
+            "allow": [
+              "assert",
+              "error",
+              "info",
+              "warn"
+            ]
+          }
+        },
+        "noConstantBinaryExpressions": "error",
+        "noEvolvingTypes": "error",
+        "noUnassignedVariables": "error",
+        "noVar": "error",
+        "useAwait": "error",
+        "useErrorMessage": "error",
+        "useNumberToFixedDigitsArgument": "error",
+        "useStrictMode": "error"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "error",
+        "noForEach": "error",
+        "noUselessStringConcat": "error",
+        "useSimplifiedLogicExpression": "error",
+        "useWhile": "error"
+      },
+      "correctness": {
+        "noGlobalDirnameFilename": "error",
+        "noNestedComponentDefinitions": "error",
+        "noReactPropAssignments": "error",
+        "noRenderReturnValue": "error"
+      },
+      "performance": {
+        "noAwaitInLoops": "error",
+        "noDelete": "error",
+        "noImgElement": "error"
+      },
+      "style": {
+        "noCommonJs": "error",
+        "noMagicNumbers": "error",
+        "noNegationElse": "error",
+        "noNestedTernary": "error",
+        "noParameterAssign": "error",
+        "noRestrictedGlobals": "error",
+        "noSubstr": "error",
+        "noUselessElse": "error",
+        "noYodaExpression": "error",
+        "useAtIndex": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "error",
+        "useCollapsedIf": "error",
+        "useConsistentArrayType": "error",
+        "useConsistentCurlyBraces": "error",
+        "useDefaultParameterLast": "error",
+        "useDefaultSwitchClause": "error",
+        "useExplicitLengthCheck": "error",
+        "useFilenamingConvention": "error",
+        "useForOf": "error",
+        "useNamingConvention": {
+          "options": {
+            "strictCase": false
+          }
+        },
+        "useNumberNamespace": "error",
+        "useNumericSeparators": "error",
+        "useObjectSpread": "error",
+        "useSelfClosingElements": "error",
+        "useShorthandAssign": "error",
+        "useSingleVarDeclarator": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error",
+        "useTrimStartEnd": "error"
       }
     },
     "domains": {
@@ -30,7 +126,8 @@
   "assist": {
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": "on",
+        "useSortedAttributes": "on"
       }
     }
   }

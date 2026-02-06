@@ -337,6 +337,9 @@ npx skills add <owner/repo@skill> -g -y
 - [find-skills](https://skills.sh/vercel-labs/skills/find-skills)
 - [vercel-react-best-practices](https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices)
 - [next-best-practices](https://skills.sh/vercel-labs/next-skills/next-best-practices)
+- [next-cache-components](https://skills.sh/vercel-labs/next-skills/next-cache-components)
+- [react-hook-form-zod](https://skills.sh/jezweb/claude-skills/react-hook-form-zod)
+
 
 
 ## Tạo Skill tùy chỉnh
@@ -357,7 +360,6 @@ npx skills init my-custom-skill
 
 - Agent sẽ tự động nhận diện và sử dụng skills đã cài đặt
 - Bạn có thể yêu cầu Agent sử dụng skill cụ thể trong prompt
-- Kết hợp nhiều skills để tạo workflow phức tạp
 
 ---
 
