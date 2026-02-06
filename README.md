@@ -345,6 +345,15 @@ npx skills add <owner/repo@skill> -g -y
 - [shadcn-ui](https://skills.sh/giuseppe-trisciuoglio/developer-kit/shadcn-ui)
 - [tailwind-design-system](https://skills.sh/wshobson/agents/tailwind-design-system)
 - [seo-audit](https://skills.sh/coreyhaines31/marketingskills/seo-audit)
+- [mermaid-diagrams](https://skills.sh/softaworks/agent-toolkit/mermaid-diagrams)
+- [beautiful-mermaid](https://skills.sh/intellectronica/agent-skills/beautiful-mermaid)
+- [audit-website](https://skills.sh/squirrelscan/skills/audit-website)
+- [frontend-design](https://skills.sh/anthropics/skills/frontend-design)
+- [react-useeffect](https://skills.sh/softaworks/agent-toolkit/react-useeffect)
+- [implement-design](https://skills.sh/figma/mcp-server-guide/implement-design)
+- [create-design-system-rules](https://skills.sh/figma/mcp-server-guide/create-design-system-rules)
+- [create-design-system-rules](https://skills.sh/figma/mcp-server-guide/create-design-system-rules)
+- [code-connect-components](https://skills.sh/figma/mcp-server-guide/code-connect-components)
 
 
 ## Tạo Skill tùy chỉnh
@@ -371,6 +380,44 @@ npx skills init my-custom-skill
 ## Đóng góp
 
 Mọi đóng góp đều được chào đón! Vui lòng tạo Pull Request hoặc Issue để thảo luận về các cải tiến.
+1. Fork repository và tạo feature branch.
+2. Cài đặt dependencies với `pnpm install`.
+3. Chạy `pnpm dev` để phát triển local và `pnpm local-check` trước khi push.
+4. Giữ `pnpm-lock.yaml` đồng bộ và commit cùng với các thay đổi của bạn.
+5. Gửi PR mô tả các thay đổi của bạn.
+
+### 🧭 Quy trình Git
+
+Chúng tôi tuân theo quy trình trunk-based đơn giản:
+
+1. **Tạo feature branch** từ `main` với tên mô tả rõ ràng, ví dụ: `feature/add-search` hoặc `fix/header-layout`.
+2. **Commit thường xuyên** sử dụng chuẩn [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) (`feat:`, `fix:`, `docs:`, v.v.).
+3. **Push branch của bạn** và mở pull request vào `main` sau khi các kiểm tra đã pass.
+4. Yêu cầu review, giải quyết feedback kịp thời, và squash-merge sử dụng tiêu đề conventional commit.
+
+### ✅ Hướng dẫn commit message
+
+Husky chạy commit-msg hook để validate tiêu đề commit trước khi lưu. Dòng đầu tiên phải tuân theo định dạng Conventional
+Commits:
+
+```
+type(scope?): mô tả ngắn gọn
+```
+
+- **Các type được phép:** `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`
+- **Subject:** tối đa 72 ký tự, viết ở thể mệnh lệnh, không có khoảng trắng đầu/cuối
+- **Scope (tùy chọn):** các từ viết thường phân tách bằng `-`, `/`, hoặc `.`
+
+Ví dụ về commit message hợp lệ:
+
+```
+feat(search): add fuzzy match for suggestions
+fix: trim user input before submit
+chore: update dependencies
+```
+
+Merge commits (`Merge ...`) và automatic reverts (`Revert "..."`) bỏ qua validation để tương thích với các thao tác trên
+GitHub UI.
 
 ## License
 
