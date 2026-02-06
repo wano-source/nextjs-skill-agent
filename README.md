@@ -341,6 +341,8 @@ npx skills add <owner/repo@skill> -g -y
 - [react-hook-form-zod](https://skills.sh/jezweb/claude-skills/react-hook-form-zod)
 - [web-design-guidelines](https://skills.sh/vercel-labs/agent-skills/web-design-guidelines)
 - [vercel-composition-patterns](https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns)
+- [agent-browser](https://skills.sh/vercel-labs/agent-browser/agent-browser)
+- [shadcn-ui](https://skills.sh/giuseppe-trisciuoglio/developer-kit/shadcn-ui)
 
 
 ## Tạo Skill tùy chỉnh
