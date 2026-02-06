@@ -42,5 +42,5 @@
       "biome check --write --no-errors-on-unmatched",
       "biome format --write --no-errors-on-unmatched"
     ]
-  },
+  }
 }
