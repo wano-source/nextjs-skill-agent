@@ -386,6 +386,20 @@ Mọi đóng góp đều được chào đón! Vui lòng tạo Pull Request ho�
 4. Giữ `pnpm-lock.yaml` đồng bộ và commit cùng với các thay đổi của bạn.
 5. Gửi PR mô tả các thay đổi của bạn.
 
+```
+# fork repo trên GitHub
+
+git clone https://github.com/<your-username>/nextjs-skill-agent.git
+cd nextjs-skill-agent
+
+git checkout -b feature/my-change
+# sửa code...
+git add .
+git commit -m "Add my change"
+git push origin feature/my-change
+
+```
+
 ### 🧭 Quy trình Git
 
 Chúng tôi tuân theo quy trình trunk-based đơn giản:
