@@ -339,7 +339,8 @@ npx skills add <owner/repo@skill> -g -y
 - [next-best-practices](https://skills.sh/vercel-labs/next-skills/next-best-practices)
 - [next-cache-components](https://skills.sh/vercel-labs/next-skills/next-cache-components)
 - [react-hook-form-zod](https://skills.sh/jezweb/claude-skills/react-hook-form-zod)
-
+- [web-design-guidelines](https://skills.sh/vercel-labs/agent-skills/web-design-guidelines)
+- [vercel-composition-patterns](https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns)
 
 
 ## Tạo Skill tùy chỉnh
