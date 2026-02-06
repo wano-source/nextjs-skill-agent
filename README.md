@@ -70,6 +70,7 @@ timeline
 - [MCP](https://modelcontextprotocol.io/docs/getting-started/intro)
 - [SKILL](https://agentskills.io/home)
 - [README cho Agent](https://agents.md/) - Nếu Human cần file README.md để overview dự án, thì Agent cũng cần 1 cái tương tự và đó là file file AGENTS.md (dễ nhiên là nội dung 2 file này sẽ phải khác nhau,  1 cái cho HUMAN đọc 1 cái cho Machine đọc)
+  - https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals
 
 **Thực sự thì mấy ông mẽo là chuyên gia trong việc phức tạp hóa mọi vấn đề lên**: rule, skill khác nhau ở đâu?
 
@@ -374,6 +375,52 @@ npx skills init my-custom-skill
 
 - Agent sẽ tự động nhận diện và sử dụng skills đã cài đặt
 - Bạn có thể yêu cầu Agent sử dụng skill cụ thể trong prompt
+
+
+---
+# [AGENT.md](https://agents.md/)
+
+## Khái niệm
+
+README.md dành cho Agent
+
+## Ứng dụng
+
+- Giúp agent đọc README theo cách mà agent suy nghĩ, (không phải cách mà HUMAN nhập môn vào dự án nhé)
+
+## Có một bài so sánh AGENT.md với Skill, với Rule...Cái nào hiệu quả hơn
+- Agent Skills (biết kích hoạt khi phù hợp)
+- AGENTS.md (file Markdown luôn có sẵn trong dự án, mọi lúc nói cách khác agent luôn thêm nó vào context trong mọi turn conversation)
+
+Lý giải một vài lý do:
+
+- Không cần “quyết định có nên đọc docs hay không”
+
+  Skills yêu cầu agent phải tự **chọn lúc nào cần tải skill** → agent *bỏ qua skill* rất thường xuyên hoặc sai chiến lược trigger.
+Còn AGENTS.md luôn sẵn trong ngữ cảnh, agent không cần lựa chọn hay invoke gì cả.
+
+- Luôn có sẵn trong mỗi turn
+ 
+  Thông tin trong AGENTS.md là **persistent context**, nên agent luôn thấy chúng mà không cần “đọc từ bên ngoài”. Điều này giúp tránh việc agent bỏ sót hoặc load không đúng lúc. 
+
+- Không có vấn đề về ordering (thứ tự)
+
+  Với Skills, có thể agent đọc docs trước hoặc sau khi khám phá project — và subtle wording (cách viết instruction) gây khác biệt rất lớn trong kết quả. Cách này mong manh và dễ thất bại. Còn AGENTS.md thì **không có quyết định đó**, nên ổn định hơn. 
+
+
+##  Cách thiết lập AGENTS.md giống Vercel
+
+Vercel cung cấp một command giúp tự động xây setup mà họ dùng trong Next.js evals:
+
+```
+npx @next/codemod@canary agents-md
+```
+
+Lệnh này sẽ:
+
+1. Phát hiện phiên bản Next.js đang dùng
+2. Tải tài liệu tương ứng về `.next-docs/`
+3. Tiêm một **chỉ mục (compressed index)** vào AGENTS.md để agent biết nơi đọc docs đúng phiên bản. ([Vercel][1])
 
 ---
 
