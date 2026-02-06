@@ -1,0 +1,5 @@
+# CODEOWNERS file cho dự án
+# Mọi thay đổi đều yêu cầu approval từ @haibh-wanosoft
+
+# Default owner cho toàn bộ repo - tất cả file đều cần approval từ haibh-wanosoft
+* @haibh-wanosoft
