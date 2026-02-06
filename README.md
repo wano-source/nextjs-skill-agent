@@ -343,6 +343,8 @@ npx skills add <owner/repo@skill> -g -y
 - [vercel-composition-patterns](https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns)
 - [agent-browser](https://skills.sh/vercel-labs/agent-browser/agent-browser)
 - [shadcn-ui](https://skills.sh/giuseppe-trisciuoglio/developer-kit/shadcn-ui)
+- [tailwind-design-system](https://skills.sh/wshobson/agents/tailwind-design-system)
+- [seo-audit](https://skills.sh/coreyhaines31/marketingskills/seo-audit)
 
 
 ## Tạo Skill tùy chỉnh
